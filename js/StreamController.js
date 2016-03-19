@@ -51,6 +51,29 @@ angular.module('smartGuide').controller('StreamController', function (
             text:  '',
             title: 'TekiKeki hat PRO7 verlassen',
             type:  'left'
+        },
+        {
+            date:  new Date(),
+            icon:  'bar-chart',
+            link:  '',
+            options: [
+                {
+                    votes: 20,
+                    title: 'Ja'
+                },
+                {
+                    votes: 14,
+                    title: 'Glaube schon'
+                },
+                {
+                    votes: 5,
+                    title: 'Nein'
+                }
+            ],
+            pollId: guid(),
+            text:  '',
+            title: 'Ist das eine Umfrage?',
+            type:  'poll'
         }
     ];
 
@@ -77,7 +100,7 @@ angular.module('smartGuide').controller('StreamController', function (
     $scope.$on('socket:connect', function (event, data) {
         $log.log('ChatsController: connect', event, data);
 
-
+        StreamSocket.switchChannel('PRO7');
     });
 
     $scope.$on('socket:connected', function (event, data) {
@@ -187,6 +210,18 @@ angular.module('smartGuide').controller('StreamController', function (
         $scope.eventsShow();
     });
 
+    $scope.$on('socket:pair_disconnected', function (event, data) {
+        $log.log('ChatsController: pair_disconnected', event, data);
+
+        $scope.setDisconnected();
+    });
+
+    $scope.$on('socket:receive_switch_channel', function (event, data) {
+        $log.log('ChatsController: receive_switch_channel', event, data);
+
+
+    });
+
     $rootScope.$on('fake_connection', function()
     {
         $scope.setConnected();
@@ -237,11 +272,11 @@ angular.module('smartGuide').controller('StreamController', function (
         $scope.connected = true;
     };
 
-
-
-
+    $scope.setDisconnected = function()
+    {
+        $scope.connected = false;
+    };
     // Closed-style?
-    // Bart api
 
 
     $('#qrcodeImage').qrcode({

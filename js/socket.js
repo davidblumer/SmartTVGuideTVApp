@@ -35,6 +35,9 @@ app.factory('StreamSocket', function (
     ChatSocket.forward('beard_set_rotation');
     ChatSocket.forward('beard_set_zoom');
     ChatSocket.forward('beard_set_index');
+    ChatSocket.forward('pair_disconnected');
+    ChatSocket.forward('receive_switch_channel');
+
 
 
 
@@ -44,6 +47,13 @@ app.factory('StreamSocket', function (
         $log.log('ChatSocket: request_code');
 
         ChatSocketIO.emit('request_code');
+    };
+
+    ChatSocket.switchChannel = function (channel)
+    {
+        $log.log('ChatSocket: switch_channel');
+
+        ChatSocketIO.emit('switch_channel', { channel: channel });
     };
 
 

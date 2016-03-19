@@ -23,6 +23,7 @@
         <script src="bower_components/angular-socket-io/socket.js"></script>
         <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
         <script src="bower_components/jquery-qrcode/jquery.qrcode.min.js"></script>
+        <script src="bower_components/Chart.js/Chart.js"></script>
 
         <!-- App -->
         <script src="js/debug.js"></script>
@@ -72,6 +73,7 @@
                           ng-class="{
                               'active':   $index == selectedDataIndex,
                               'has-link': entry.link && entry.link.length > 0,
+                              'poll':     entry.type == 'poll',
                               'small':    entry.type == 'joined' || entry.type == 'left'
                           }"
                           ng-show="eventsVisible || (entry.type != 'joined' && entry.type != 'left')"
@@ -89,10 +91,13 @@
                               <h5>{{ entry.date | date:'hh:mm' }}</h5>
                               <p ng-show="entry.text && entry.text.length > 0">{{ entry.text }}</p>
                               <a ng-show="entry.link && entry.link.length > 0" href="{{ entry.link }}" target="_blank"><i class="fa fa-angle-right"></i></a>
+                              <ul ng-show="entry.type == 'poll'" class="poll">
+                                  <li ng-repeat="option in entry.options">
+                                      <strong>{{ option.title }}</strong>
+                                      <span><span><span>{{ option.votes }}</span></span></span>
+                                  </li>
+                              </ul>
                           </div>
-
-
-
                       </li>
                   </ul>
               </div>

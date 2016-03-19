@@ -51,5 +51,7 @@ app.factory('DeviceManager', function (
 
     DeviceManager.init();
 
+    $('title').text(DeviceManager.getId());
+
     return DeviceManager;
 });

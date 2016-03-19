@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<widget xmlns:tizen="http://tizen.org/ns/widgets" xmlns="http://www.w3.org/ns/widgets" id="http://yourdomain/Basicapplication" version="1.0.0" viewmodes="maximized">
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:tizen="http://tizen.org/ns/widgets" id="http://yourdomain/Basicapplication" version="1.0.0" viewmodes="maximized">
+    <access origin="*" subdomains="true"/>
     <tizen:application id="lhILrUoji8.Basicapplication" package="lhILrUoji8" required_version="2.3"/>
     <tizen:category name="http://samsung.com/category/ticker"/>
     <content src="index.html"/>

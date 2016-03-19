@@ -87,6 +87,10 @@ body
 {
 	cursor: pointer;
 }
+#events ul li.poll
+{
+	min-height: auto;
+}
 #events ul li.small
 {
 	min-height: 69px;
@@ -145,6 +149,50 @@ body
 	right: 10px;
 	top: 14px;
 }
+#events ul li .data ul.poll
+{
+	margin: 10px 10px 0 0;
+	border: 1px solid #FFF;
+	border-radius: 8px;
+}
+#events ul li .data ul.poll li
+{
+	padding: 25px 0 0 0;
+	position: relative;
+	background: transparent;
+	min-height: auto;
+}
+#events ul li .data ul.poll li strong
+{
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	color: #FFF;
+	padding: 3px 0 0 10px;
+}
+#events ul li .data ul.poll li span
+{
+	display: block;
+	position:  relative;
+	background: #FFF;
+	height: 20px;
+
+}
+#events ul li .data ul.poll li span span
+{
+	background: #FFF;
+	min-width: 5%;
+}
+#events ul li .data ul.poll li span span span
+{
+	position: absolute;
+	top: -22px;
+	right: 6px;
+	text-align: right;
+	background: none;
+}
+
 #overview
 {
 	position: absolute;
