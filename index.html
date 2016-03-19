@@ -49,7 +49,8 @@
                       <li
                           ng-repeat="entry in data"
                           ng-class="{
-                              'has-link': entry.link && entry.link.length > 0
+                              'has-link': entry.link && entry.link.length > 0,
+                              'small':    entry.type == 'joined' || entry.type == 'left'
                           }"
                       >
                           <div class="icon">

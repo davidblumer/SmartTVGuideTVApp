@@ -80,6 +80,10 @@ body
 {
 	cursor: pointer;
 }
+#events ul li.small
+{
+	min-height: 69px;
+}
 #events ul li .icon
 {
 	float: left;
@@ -94,11 +98,19 @@ body
 	width: 80%;
 	position: relative;
 }
+#events ul li.small .data
+{
+	padding: 10px 0;
+}
 #events ul li .data h3
 {
 	margin: 0;
 }
 #events ul li .data.no-text h3
+{
+	margin-top: 11px;
+}
+#events ul li.small .data.no-text h3
 {
 	margin-top: 11px;
 }
@@ -109,6 +121,10 @@ body
 	left: -66px;
 	top: 64px;
 	font-size: 11px;
+}
+#events ul li.small h5
+{
+	display: none;
 }
 #events ul li .data p
 {

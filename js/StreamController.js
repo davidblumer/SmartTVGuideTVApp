@@ -32,6 +32,22 @@ angular.module('smartGuide').controller('StreamController', function (
             text:  '',
             title: 'titel',
             type:  'affiliate'
+        },
+        {
+            date:  new Date(),
+            icon:  'long-arrow-right',
+            link:  '',
+            text:  '',
+            title: 'TekiKeki ist PRO7 beigetreten',
+            type:  'joined'
+        },
+        {
+            date:  new Date(),
+            icon:  'long-arrow-left',
+            link:  '',
+            text:  '',
+            title: 'TekiKeki hat PRO7 verlassen',
+            type:  'left'
         }
     ];
 
@@ -107,5 +123,6 @@ angular.module('smartGuide').controller('StreamController', function (
     // im desig auch joined/left-nachrichten?
     // Closed-style?
     // api für selection
+    // setting for show/hide join/left 
 
 });
