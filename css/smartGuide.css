@@ -1,23 +1,35 @@
-* {
-    font-family: Verdana, Lucida Sans, Arial, Helvetica, sans-serif;
+body
+{
+
 }
 
-body {
-    margin: 0px auto;
-    background-color: yellow;
+#app
+{
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 20%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.8);
 }
-
-.contents {
-	display: flex;
-	display: -webkit-flex;
-	box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-	height:320px;
+#content
+{
+	position: realtive;
 }
+#content h1
+{
+	background: gray;
+	padding: 0;
+	padding: 6px 0;
+	text-align: center;
+	margin: 0;
+	font-size: 17px;
+}
+#qrcode
+{
 
-
-.content_text {
-	font-weight:bold;
-	font-size:5em;
-	color:#fff;
+}
+#events
+{
+	
 }
