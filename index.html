@@ -46,14 +46,25 @@
               </div>
               <div id="events">
                   <ul>
-                      <li ng-repeat="entry in data">
+                      <li
+                          ng-repeat="entry in data"
+                          ng-class="{
+                              'has-link': entry.link && entry.link.length > 0
+                          }"
+                      >
                           <div class="icon">
                               <i class="fa fa-{{ entry.icon }}"></i>
                           </div>
-                          <div class="data">
+                          <div
+                              class="data"
+                              ng-class="{
+                                  'no-text':  !entry.text || entry.text.length == 0
+                              }"
+                          >
                               <h3>{{ entry.title }}</h3>
                               <h5>{{ entry.date | date:'hh:mm:ss' }}</h5>
-                              <p>{{ entry.text }}</p>
+                              <p ng-show="entry.text && entry.text.length > 0">{{ entry.text }}</p>
+                              <a ng-show="entry.link && entry.link.length > 0" href="{{ entry.link }}" target="_blank"><i class="fa fa-angle-right"></i></a>
                           </div>
 
 

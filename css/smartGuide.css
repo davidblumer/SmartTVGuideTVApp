@@ -68,12 +68,17 @@ body
 	overflow: auto;
 	transition: background-color 0.25s ease;
 	border-bottom: 1px solid #FFF;
+	min-height: 88px;
 }
 #events ul li:hover,
 #events ul li:active,
 #events ul li.active
 {
 	background: rgb(45, 129, 190);
+}
+#events ul li.has-link
+{
+	cursor: pointer;
 }
 #events ul li .icon
 {
@@ -85,19 +90,37 @@ body
 #events ul li .data
 {
 	float: left;
+	padding: 20px 0;
 	width: 80%;
+	position: relative;
 }
 #events ul li .data h3
 {
-	margin: 10px 0 0 0;
+	margin: 0;
+}
+#events ul li .data.no-text h3
+{
+	margin-top: 11px;
 }
 #events ul li .data h5
 {
-
+	margin: 0;
+	position: absolute;
+	left: -66px;
+	top: 64px;
+	font-size: 11px;
 }
 #events ul li .data p
 {
-	margin: 0 0 10px 0;
+	margin: 0;
+}
+#events ul li .data a
+{
+	color: #fff;
+	font-size: 40px;
+	position: absolute;
+	right: 10px;
+	top: 14px;
 }
 #overview
 {

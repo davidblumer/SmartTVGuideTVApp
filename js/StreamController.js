@@ -29,7 +29,7 @@ angular.module('smartGuide').controller('StreamController', function (
             date:  new Date(),
             icon:  'shopping-cart',
             link:  'http://weg.de/kaufen',
-            text:  'Bla bla weg.de',
+            text:  '',
             title: 'titel',
             type:  'affiliate'
         }
