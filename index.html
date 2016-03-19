@@ -94,7 +94,7 @@
                               <ul ng-show="entry.type == 'poll'" class="poll">
                                   <li ng-repeat="option in entry.options">
                                       <strong>{{ option.title }}</strong>
-                                      <span><span><span>{{ option.votes }}</span></span></span>
+                                      <span><span style="width: {{ option.votes / entry.votes * 100 }}%;"><span>{{ option.votes }}</span></span></span>
                                   </li>
                               </ul>
                           </div>

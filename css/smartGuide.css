@@ -174,8 +174,7 @@ body
 #events ul li .data ul.poll li span
 {
 	display: block;
-	position:  relative;
-	background: #FFF;
+	background: none;
 	height: 20px;
 
 }
@@ -187,7 +186,7 @@ body
 #events ul li .data ul.poll li span span span
 {
 	position: absolute;
-	top: -22px;
+	top: 3px;
 	right: 6px;
 	text-align: right;
 	background: none;

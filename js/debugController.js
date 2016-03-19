@@ -41,6 +41,14 @@ angular.module('smartGuide').controller('DebugController', function (
             data: { i: 2 },
             event: 'socket:beard_set_index'
         },
+        {
+            data: { title: 'Neue Umfrage?', options: [ 'Ja', 'Nein', 'Vielleicht'] },
+            event: 'socket:create_vote'
+        },
+        {
+            data: { id: 'testPoll', optionIndex: 2 },
+            event: 'socket:vote'
+        },
 
 
 

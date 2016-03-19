@@ -70,10 +70,11 @@ angular.module('smartGuide').controller('StreamController', function (
                     title: 'Nein'
                 }
             ],
-            pollId: guid(),
+            pollId: 'testPoll',
             text:  '',
             title: 'Ist das eine Umfrage?',
-            type:  'poll'
+            type:  'poll',
+            votes: 39
         }
     ];
 
@@ -221,6 +222,65 @@ angular.module('smartGuide').controller('StreamController', function (
 
 
     });
+
+    $scope.$on('socket:create_vote', function (event, data) {
+        $log.log('ChatsController: create_vote', event, data);
+
+        var options = [];
+
+        for (var key in data.options)
+        {
+            var newOption = {
+                title: data.options[key],
+                votes: 0
+            };
+
+            options.push(newOption);
+        }
+
+        var newVote = {
+            date:    new Date(),
+            icon:    'bar-chart',
+            link:    '',
+            options: options,
+            pollId:  guid(),
+            text:    '',
+            title:   data.title,
+            type:    'poll',
+            votes:    0
+        };
+
+        $scope.data.push(newVote);
+    });
+
+    $scope.$on('socket:vote', function (event, data) {
+        $log.log('ChatsController: vote', event, data);
+
+        var pollId = data.id;
+
+        for (var key in $scope.data)
+        {
+            var entry = $scope.data[key];
+
+            if (entry.type == 'poll' && entry.pollId == pollId)
+            {
+                ++entry.options[data.optionIndex].votes;
+                ++entry.votes;
+
+                return;
+            }
+        }
+    });
+
+
+
+
+
+
+
+
+
+
 
     $rootScope.$on('fake_connection', function()
     {
