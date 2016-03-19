@@ -6,6 +6,40 @@ angular.module('smartGuide').controller('StreamController', function (
     , StreamSocket
 )
 {
+    $scope.data = [];
+
+    $scope.data = [
+        {
+            date:  new Date(),
+            icon:  'comments',
+            link:  '',
+            text:  'Bla bla bla',
+            title: 'titel',
+            type:  'chat'
+        },
+        {
+            date:  new Date(),
+            icon:  'twitter',
+            link:  'http://twitter.com/url/zum/tweet',
+            text:  'Bla bla bla',
+            title: 'titel',
+            type:  'twitter'
+        },
+        {
+            date:  new Date(),
+            icon:  'shopping-cart',
+            link:  'http://weg.de/kaufen',
+            text:  'Bla bla weg.de',
+            title: 'titel',
+            type:  'affiliate'
+        }
+    ];
+
+    $scope.users = [
+        {
+            name: 'test'
+        }
+    ];
 
 
     $scope.$on('socket:error', function (event, data) {
@@ -69,7 +103,9 @@ angular.module('smartGuide').controller('StreamController', function (
     });
 
 
-
-
+    // TODO: event für joined/lef
+    // im desig auch joined/left-nachrichten?
+    // Closed-style?
+    // api für selection
 
 });

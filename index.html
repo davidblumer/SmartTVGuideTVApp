@@ -6,7 +6,8 @@
         <meta name="description" content="SmartTVGuideTVApp"/>
         <title>SmartTVGuideTVApp</title>
 
-
+        <!-- Google -->
+        <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
 
         <!-- Bower js components -->
         <link rel="stylesheet" type="text/css" href="bower_components/components-font-awesome/css/font-awesome.css" />
@@ -38,28 +39,27 @@
       <div id="app">
           <div id="content" ng-controller="StreamController">
               <h1>SmartGuide</h1>
+              <h2 ng-show="users.length != 1">Es sind {{ users.length }} Personen im Chat</h2>
+              <h2 ng-show="users.length == 1">Es ist eine Person im Chat</h2>
               <div id="qrcode">
-{{ entries }}
+
               </div>
               <div id="events">
                   <ul>
-                      <li>
+                      <li ng-repeat="entry in data">
                           <div class="icon">
-
+                              <i class="fa fa-{{ entry.icon }}"></i>
                           </div>
                           <div class="data">
-                              <h3>Test</h3>
-                              <h5>14:47:20</h5>
-                              <p>gdskljglsjgsdl</p>
+                              <h3>{{ entry.title }}</h3>
+                              <h5>{{ entry.date | date:'hh:mm:ss' }}</h5>
+                              <p>{{ entry.text }}</p>
                           </div>
 
 
 
                       </li>
                   </ul>
-              </div>
-              <div id="overview">
-                  tests
               </div>
           </div>
       </div>

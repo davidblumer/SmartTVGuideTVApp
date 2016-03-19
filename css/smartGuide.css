@@ -1,3 +1,8 @@
+*
+{
+	font-family: 'Lato', sans-serif;
+}
+
 body
 {
 
@@ -8,24 +13,38 @@ body
 	position: absolute;
 	right: 0;
 	top: 0;
-	width: 20%;
+	width: 440px;
 	height: 100%;
-	background: rgba(0, 0, 0, 0.8);
+	background: rgb(52, 149, 209);
+	color: #FFF;
+	border-left: 1px solid #FFF;
 }
 #content
 {
 	position: relative;
-	opacity: 0.7;
+	opacity: 1;
 	padding: 0 0 20px 0;
 }
 #content h1
 {
-	background: gray;
 	padding: 0;
 	padding: 6px 0;
 	text-align: center;
 	margin: 0;
-	font-size: 17px;
+	font-size: 54px;
+	font-weight: 700;
+}
+#content h2
+{
+	padding: 0;
+	padding: 6px 0;
+	text-align: center;
+	margin: 0;
+	font-size: 20px;
+	font-weight: 700;
+	text-transform: uppercase;
+	border-bottom: 1px solid #FFF;
+	padding: 0 0 15px 0;
 }
 #qrcode
 {
@@ -46,23 +65,39 @@ body
 }
 #events ul li
 {
-	background: cyan;
 	overflow: auto;
+	transition: background-color 0.25s ease;
+	border-bottom: 1px solid #FFF;
+}
+#events ul li:hover,
+#events ul li:active,
+#events ul li.active
+{
+	background: rgb(45, 129, 190);
 }
 #events ul li .icon
 {
 	float: left;
-	width: 10%;
-
-
-
+	width: 20%;
+	text-align: center;
+	font-size: 48px;
 }
 #events ul li .data
 {
 	float: left;
-	width: 90%;
+	width: 80%;
+}
+#events ul li .data h3
+{
+	margin: 10px 0 0 0;
+}
+#events ul li .data h5
+{
 
-
+}
+#events ul li .data p
+{
+	margin: 0 0 10px 0;
 }
 #overview
 {
