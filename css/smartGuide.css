@@ -5,7 +5,7 @@
 
 body
 {
-
+	background: transparent;
 }
 
 #app
@@ -49,9 +49,16 @@ body
 #qrcode
 {
 	position: absolute;
-	top: 0;
+	top: 140px;
 	right: 0;
 	height: 100%;
+	text-align: center;
+}
+#qrcodeImage
+{
+	margin: 0 auto 20px auto;
+	width: 256px;
+	height: 256px;
 }
 #events
 {

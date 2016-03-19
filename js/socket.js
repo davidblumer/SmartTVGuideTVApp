@@ -1,10 +1,11 @@
 app.factory('StreamSocket', function (
       $log
+    , DeviceManager
     , socketFactory
 ) {
     $log.log('ChatSocket: initializing');
 
-    var ChatSocketIO = io.connect('http://3b4fbd96.ngrok.com', { query: 'type=tv&udid=' + guid() } );
+    var ChatSocketIO = io.connect('http://3b4fbd96.ngrok.com', { query: 'type=tv&udid=' + DeviceManager.getId() } );
     var ChatSocket   = socketFactory({
         ioSocket: ChatSocketIO
     });
@@ -12,6 +13,7 @@ app.factory('StreamSocket', function (
     ChatSocket.forward('error');
     ChatSocket.forward('connect');
     ChatSocket.forward('connect_error');
+    ChatSocket.forward('connected');
     ChatSocket.forward('disconnect');
     ChatSocket.forward('reconnect_attempt');
     ChatSocket.forward('reconnect_error');

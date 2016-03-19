@@ -21,11 +21,13 @@
         <script src="bower_components/angular-busy/dist/angular-busy.js"></script>
         <script src="bower_components/angular-socket-io/socket.js"></script>
         <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="bower_components/jquery-qrcode/jquery.qrcode.min.js"></script>
 
         <!-- App -->
         <script src="js/debug.js"></script>
-        <script src="js/tv.js"></script>
+        <!-- <script src="js/tv.js"></script> -->
         <script src="js/app.js"></script>
+        <script src="js/deviceManager.js"></script>
         <script src="js/socket.js"></script>
         <script src="js/streamController.js"></script>
         <script src="js/udid.js"></script>
@@ -49,14 +51,20 @@
                       <li ng-click="eventsShow()">show events</li>
                       <li ng-click="eventsHide()">hide events</li>
                   </ul>
+                  <ul>
+                      <li ng-click="setConnected()">set connected</li>
+                  </ul>
               </div>
               <h1>SmartGuide</h1>
               <h2 ng-show="users.length != 1">Es sind {{ users.length }} Personen im Chat</h2>
               <h2 ng-show="users.length == 1">Es ist eine Person im Chat</h2>
-              <div id="qrcode">
+              <div id="qrcode" ng-show="!connected">
+                  <div id="qrcodeImage">
 
+                  </div>
+                  Bitte scanne diesen QR-Code mit einer App um dich mit diesem SmartTV zu verbinden.
               </div>
-              <div id="events">
+              <div id="events" ng-show="connected">
                   <ul>
                       <li
                           ng-repeat="entry in data"

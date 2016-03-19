@@ -3,9 +3,12 @@ angular.module('smartGuide').controller('StreamController', function (
       $log
     , $rootScope
     , $scope
+    , DeviceManager
     , StreamSocket
 )
 {
+    $scope.connected = false;
+
     $scope.data = [];
 
     $scope.data = [
@@ -77,6 +80,12 @@ angular.module('smartGuide').controller('StreamController', function (
 
     });
 
+    $scope.$on('socket:connected', function (event, data) {
+        $log.log('ChatsController: connected', event, data);
+
+
+    });
+
     $scope.$on('socket:connect_error', function (event, data) {
         $log.log('ChatsController: connect_error', event, data);
 
@@ -122,7 +131,7 @@ angular.module('smartGuide').controller('StreamController', function (
     $scope.$on('socket:receive_code', function (event, data) {
         $log.log('ChatsController: receive_code', event, data);
 
-
+        $scope.setConnected();
     });
 
     $scope.$on('socket:user_joined', function (event, data) {
@@ -218,12 +227,20 @@ angular.module('smartGuide').controller('StreamController', function (
         $scope.selectedDataIndex = -1;
     };
 
+    $scope.setConnected = function()
+    {
+        $scope.connected = true;
+    };
+
 
 
 
     // Closed-style?
-    // setting for show/hide join/left
     // Fernbedienung einbauen
     // Bart api
 
+
+    $('#qrcodeImage').qrcode({
+        text: DeviceManager.getId()
+    });
 });
