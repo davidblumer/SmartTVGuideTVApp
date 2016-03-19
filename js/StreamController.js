@@ -187,6 +187,11 @@ angular.module('smartGuide').controller('StreamController', function (
         $scope.eventsShow();
     });
 
+    $rootScope.$on('fake_connection', function()
+    {
+        $scope.setConnected();
+    });
+
     $scope.eventsHide = function()
     {
         $scope.eventsVisible = false;

@@ -19,6 +19,7 @@
         <script src="bower_components/socket.io-client/socket.io.js"></script>
         <script src="bower_components/angular/angular.js"></script>
         <script src="bower_components/angular-busy/dist/angular-busy.js"></script>
+        <script src="bower_components/angular-cookies/angular-cookies.js"></script>
         <script src="bower_components/angular-socket-io/socket.js"></script>
         <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
         <script src="bower_components/jquery-qrcode/jquery.qrcode.min.js"></script>
@@ -27,6 +28,8 @@
         <script src="js/debug.js"></script>
         <!-- <script src="js/tv.js"></script> -->
         <script src="js/app.js"></script>
+        <script src="js/beardController.js"></script>
+        <script src="js/debugController.js"></script>
         <script src="js/deviceManager.js"></script>
         <script src="js/jQuery.js"></script>
         <script src="js/socket.js"></script>
@@ -39,23 +42,20 @@
 
     </head>
     <body>
+      <div ng-controller="BeardController"
+           id="beard"
+           ng-show="beard.enabled"
+           style="background-image: url(images/beard{{ beard.imageIndex }}.png);"
+      >
+
+      </div>
+      <div id="debug" ng-controller="DebugController">
+          <ul>
+              <li ng-repeat="command in commands" ng-click="runCommand(command)">{{ command.event }}</li>
+          </ul>
+      </div>
       <div id="app">
           <div id="content" ng-controller="StreamController">
-              <div id="debug">
-                  <ul>
-                      <li ng-click="selectionUp()">up</li>
-                      <li ng-click="selectionDown()">down</li>
-                      <li ng-click="selectionClick()">click</li>
-                      <li ng-click="selectionRemove()">remove</li>
-                  </ul>
-                  <ul>
-                      <li ng-click="eventsShow()">show events</li>
-                      <li ng-click="eventsHide()">hide events</li>
-                  </ul>
-                  <ul>
-                      <li ng-click="setConnected()">set connected</li>
-                  </ul>
-              </div>
               <h1>SmartGuide</h1>
               <h2 ng-show="users.length != 1">Es sind {{ users.length }} Personen im Chat</h2>
               <h2 ng-show="users.length == 1">Es ist eine Person im Chat</h2>

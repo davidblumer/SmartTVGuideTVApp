@@ -29,6 +29,12 @@ app.factory('StreamSocket', function (
     ChatSocket.forward('selection_remove');
     ChatSocket.forward('events_show');
     ChatSocket.forward('events_hide');
+    ChatSocket.forward('beard_show');
+    ChatSocket.forward('beard_hide');
+    ChatSocket.forward('beard_set_position');
+    ChatSocket.forward('beard_set_rotation');
+    ChatSocket.forward('beard_set_zoom');
+    ChatSocket.forward('beard_set_index');
 
 
 

@@ -155,8 +155,17 @@ body
 #debug
 {
 	color: red;
-	position: absolute;
-	top: 0;
-	left: -500px;
 	padding: 50px;
+}
+#beard
+{
+	position: absolute;
+	z-index: 1337;
+	background-position: center;
+	background-size: contain;
+	background-repeat: no-repeat;
+	top: 20%;
+	left: 20%;
+	width: 150px;
+	height: 150px;
 }
