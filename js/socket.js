@@ -21,6 +21,10 @@ app.factory('StreamSocket', function (
     ChatSocket.forward('receive_code');
     ChatSocket.forward('user_joined');
     ChatSocket.forward('user_left');
+    ChatSocket.forward('selection_down');
+    ChatSocket.forward('selection_click');
+    ChatSocket.forward('selection_up');
+    ChatSocket.forward('selection_remove');
 
 
 

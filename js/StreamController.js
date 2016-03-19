@@ -51,6 +51,8 @@ angular.module('smartGuide').controller('StreamController', function (
         }
     ];
 
+    $scope.selectedDataIndex = -1;
+
     $scope.users = [
         {
             name: 'test'
@@ -138,11 +140,68 @@ angular.module('smartGuide').controller('StreamController', function (
         }
     });
 
+    $scope.$on('socket:selection_down', function (event, data) {
+        $log.log('ChatsController: selection_down', event, data);
+
+        $scope.selectionDown();
+    });
+
+    $scope.$on('socket:selection_up', function (event, data) {
+        $log.log('ChatsController: selection_up', event, data);
+
+        $scope.selectionUp();
+    });
+
+    $scope.$on('socket:selection_click', function (event, data) {
+        $log.log('ChatsController: selection_click', event, data);
+
+        $scope.selectionClick();
+    });
+
+    $scope.$on('socket:selection_remove', function (event, data) {
+        $log.log('ChatsController: selection_remove', event, data);
+
+        $scope.selectionRemove();
+    });
+
+
+
+    $scope.selectionClick = function()
+    {
+
+    };
+
+    $scope.selectionDown = function()
+    {
+        ++$scope.selectedDataIndex;
+
+        if ($scope.selectedDataIndex >= $scope.data.length)
+        {
+            $scope.selectedDataIndex = 0;
+        }
+    };
+
+    $scope.selectionUp = function()
+    {
+        --$scope.selectedDataIndex;
+
+        if ($scope.selectedDataIndex < 0)
+        {
+            $scope.selectedDataIndex = $scope.data.length - 1;
+        }
+    };
+
+    $scope.selectionRemove = function()
+    {
+        $scope.selectedDataIndex = -1;
+    };
+
+    
 
 
     // Closed-style?
-    // api für selection
     // setting for show/hide join/left
     // Fernbedienung einbauen
+    // Bart api
 
 });

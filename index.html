@@ -38,6 +38,14 @@
     <body>
       <div id="app">
           <div id="content" ng-controller="StreamController">
+              <div id="debug">
+                  <ul>
+                      <li ng-click="selectionUp()">up</li>
+                      <li ng-click="selectionDown()">down</li>
+                      <li ng-click="selectionClick()">click</li>
+                      <li ng-click="selectionRemove()">remove</li>
+                  </ul>
+              </div>
               <h1>SmartGuide</h1>
               <h2 ng-show="users.length != 1">Es sind {{ users.length }} Personen im Chat</h2>
               <h2 ng-show="users.length == 1">Es ist eine Person im Chat</h2>
@@ -49,6 +57,7 @@
                       <li
                           ng-repeat="entry in data"
                           ng-class="{
+                              'active':   $index == selectedDataIndex,
                               'has-link': entry.link && entry.link.length > 0,
                               'small':    entry.type == 'joined' || entry.type == 'left'
                           }"
