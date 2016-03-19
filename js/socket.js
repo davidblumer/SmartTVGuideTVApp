@@ -25,6 +25,8 @@ app.factory('StreamSocket', function (
     ChatSocket.forward('selection_click');
     ChatSocket.forward('selection_up');
     ChatSocket.forward('selection_remove');
+    ChatSocket.forward('events_show');
+    ChatSocket.forward('events_hide');
 
 
 

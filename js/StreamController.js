@@ -51,6 +51,8 @@ angular.module('smartGuide').controller('StreamController', function (
         }
     ];
 
+    $scope.eventsVisible = true;
+
     $scope.selectedDataIndex = -1;
 
     $scope.users = [
@@ -164,7 +166,27 @@ angular.module('smartGuide').controller('StreamController', function (
         $scope.selectionRemove();
     });
 
+    $scope.$on('socket:events_hide', function (event, data) {
+        $log.log('ChatsController: events_show', event, data);
 
+        $scope.eventsHide();
+    });
+
+    $scope.$on('socket:events_show', function (event, data) {
+        $log.log('ChatsController: events_show', event, data);
+
+        $scope.eventsShow();
+    });
+
+    $scope.eventsHide = function()
+    {
+        $scope.eventsVisible = false;
+    };
+
+    $scope.eventsShow = function()
+    {
+        $scope.eventsVisible = true;
+    };
 
     $scope.selectionClick = function()
     {
@@ -196,7 +218,7 @@ angular.module('smartGuide').controller('StreamController', function (
         $scope.selectedDataIndex = -1;
     };
 
-    
+
 
 
     // Closed-style?
