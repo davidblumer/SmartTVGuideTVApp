@@ -14,7 +14,9 @@ body
 }
 #content
 {
-	position: realtive;
+	position: relative;
+	opacity: 0.7;
+	padding: 0 0 20px 0;
 }
 #content h1
 {
@@ -27,9 +29,45 @@ body
 }
 #qrcode
 {
-
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: 100%;
 }
 #events
 {
-	
+
+}
+#events ul
+{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+#events ul li
+{
+	background: cyan;
+	overflow: auto;
+}
+#events ul li .icon
+{
+	float: left;
+	width: 10%;
+
+
+
+}
+#events ul li .data
+{
+	float: left;
+	width: 90%;
+
+
+}
+#overview
+{
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	height: 20px;
 }
