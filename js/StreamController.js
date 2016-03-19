@@ -236,7 +236,6 @@ angular.module('smartGuide').controller('StreamController', function (
 
 
     // Closed-style?
-    // Fernbedienung einbauen
     // Bart api
 
 
