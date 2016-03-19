@@ -63,7 +63,7 @@
                               }"
                           >
                               <h3>{{ entry.title }}</h3>
-                              <h5>{{ entry.date | date:'hh:mm:ss' }}</h5>
+                              <h5>{{ entry.date | date:'hh:mm' }}</h5>
                               <p ng-show="entry.text && entry.text.length > 0">{{ entry.text }}</p>
                               <a ng-show="entry.link && entry.link.length > 0" href="{{ entry.link }}" target="_blank"><i class="fa fa-angle-right"></i></a>
                           </div>

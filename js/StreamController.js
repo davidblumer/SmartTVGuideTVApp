@@ -54,6 +54,9 @@ angular.module('smartGuide').controller('StreamController', function (
     $scope.users = [
         {
             name: 'test'
+        },
+        {
+            name: 'test'
         }
     ];
 
@@ -118,11 +121,28 @@ angular.module('smartGuide').controller('StreamController', function (
 
     });
 
+    $scope.$on('socket:user_joined', function (event, data) {
+        $log.log('ChatsController: user_joined', event, data);
 
-    // TODO: event für joined/lef
-    // im desig auch joined/left-nachrichten?
+        $scope.users.push(data.user);
+    });
+
+    $scope.$on('socket:user_left', function (event, data) {
+        $log.log('ChatsController: user_left', event, data);
+
+        var userIndex = $scope.users.indexOf(data.user);
+
+        if (userIndex > -1)
+        {
+            $scope.users.splice(userIndex, 1);
+        }
+    });
+
+
+
     // Closed-style?
     // api für selection
-    // setting for show/hide join/left 
+    // setting for show/hide join/left
+    // Fernbedienung einbauen
 
 });

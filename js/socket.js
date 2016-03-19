@@ -19,6 +19,8 @@ app.factory('StreamSocket', function (
     ChatSocket.forward('reconnecting');
     ChatSocket.forward('unauthorized');
     ChatSocket.forward('receive_code');
+    ChatSocket.forward('user_joined');
+    ChatSocket.forward('user_left');
 
 
 
