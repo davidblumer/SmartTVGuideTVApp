@@ -49,6 +49,14 @@ angular.module('smartGuide').controller('DebugController', function (
             data: { id: 'testPoll', optionIndex: 2 },
             event: 'socket:vote'
         },
+        {
+            data: null,
+            event: 'socket:hide_guide'
+        },
+        {
+            data: null,
+            event: 'socket:show_guide'
+        },
 
 
 

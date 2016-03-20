@@ -224,6 +224,18 @@ angular.module('smartGuide').controller('StreamController', function (
 
     });
 
+    $scope.$on('socket:hide_guide', function (event, data) {
+        $log.log('ChatsController: hide_guide', event, data);
+
+        $scope.eventsVisible = false;
+    });
+
+    $scope.$on('socket:show_guide', function (event, data) {
+        $log.log('ChatsController: show_guide', event, data);
+
+        $scope.eventsVisible = true;
+    });
+
     $scope.$on('socket:create_vote', function (event, data) {
         $log.log('ChatsController: create_vote', event, data);
 
@@ -237,6 +249,11 @@ angular.module('smartGuide').controller('StreamController', function (
             };
 
             options.push(newOption);
+        }
+
+        if (options.length < 2)
+        {
+            return false;
         }
 
         var newVote = {
@@ -274,16 +291,6 @@ angular.module('smartGuide').controller('StreamController', function (
             }
         }
     });
-
-
-
-
-
-
-
-
-
-
 
     $rootScope.$on('fake_connection', function()
     {
@@ -355,8 +362,6 @@ angular.module('smartGuide').controller('StreamController', function (
     {
         $scope.connected = false;
     };
-    // Closed-style?
-
 
     $('#qrcodeImage').qrcode({
         text: DeviceManager.getId()

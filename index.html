@@ -43,6 +43,7 @@
 
     </head>
     <body>
+      <iframe id="tv" src="https://www.youtube.com/embed/z9mUFSexdlE?autoplay=1&showinfo=0&controls=0" frameborder="0" allowfullscreen="false"></iframe>
       <div ng-controller="BeardController"
            id="beard"
            ng-show="beard.enabled"
@@ -55,8 +56,9 @@
               <li ng-repeat="command in commands" ng-click="runCommand(command)">{{ command.event }}</li>
           </ul>
       </div>
-      <div id="app">
-          <div id="content" ng-controller="StreamController">
+      <div id="app" ng-controller="StreamController" ng-class="{ 'visible': eventsVisible }">
+          <div id="messages">100+</div>
+          <div id="content">
               <h1>SmartGuide</h1>
               <h2 ng-show="users.length != 1">Es sind {{ users.length }} Personen im Chat</h2>
               <h2 ng-show="users.length == 1">Es ist eine Person im Chat</h2>

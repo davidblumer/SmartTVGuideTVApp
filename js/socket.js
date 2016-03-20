@@ -39,6 +39,8 @@ app.factory('StreamSocket', function (
     ChatSocket.forward('receive_switch_channel');
     ChatSocket.forward('create_vote');
     ChatSocket.forward('vote');
+    ChatSocket.forward('show_guide');
+    ChatSocket.forward('hide_guide');
 
 
 
