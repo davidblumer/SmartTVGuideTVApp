@@ -76,7 +76,23 @@ angular.module('smartGuide').controller('StreamController', function (
             title: 'Ist das eine Umfrage?',
             type:  'poll',
             votes: 39
-        }
+        },
+        {
+            date:  new Date(),
+            icon:  'info-circle',
+            link:  '',
+            text:  'noch 3:00 Minuten',
+            title: 'Präsentation läuft',
+            type:  'info'
+        },
+        {
+            date:  new Date(),
+            icon:  'github',
+            link:  'https://github.com/SocialbitGmbH/SmartTVGuideRNA',
+            text:  'ReactNative-App',
+            title: 'SmartTVGuideRNA',
+            type:  'github'
+        },
     ];
 
     $scope.eventsVisible = true;
@@ -235,6 +251,23 @@ angular.module('smartGuide').controller('StreamController', function (
 
         $scope.eventsVisible = true;
     });
+
+    $scope.$on('socket:receive_message', function (event, data) {
+        $log.log('ChatsController: receive_message', event, data);
+
+        var newChatEntry = {
+            date:  new Date(),
+            icon:  'comments',
+            link:  '',
+            text:  data.message,
+            title: 'Michael Malura',
+            type:  'chat'
+        };
+
+        $scope.addEntry(newChatEntry);
+    });
+
+
 
     $scope.$on('socket:create_vote', function (event, data) {
         $log.log('ChatsController: create_vote', event, data);

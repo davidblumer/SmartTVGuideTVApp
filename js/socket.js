@@ -42,6 +42,7 @@ app.factory('StreamSocket', function (
     ChatSocket.forward('vote');
     ChatSocket.forward('show_guide');
     ChatSocket.forward('hide_guide');
+    ChatSocket.forward('receive_message');
 
 
 

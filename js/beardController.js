@@ -60,6 +60,12 @@ angular.module('smartGuide').controller('BeardController', function (
     $scope.$on('socket:beard_update', function (event, data) {
         // $log.log('BeardController: beard_update', event, data);
 
+        $scope.beard.imageIndex = data.i;
+
+        if (data.x < 0)   data.x = 10;
+        if (data.y < 0)   data.y = 10;
+        if (data.z < 0.2) data.z = 0.2;
+
         beard.css({
             left:       data.x + 'px',
             top:        data.y + 'px',
