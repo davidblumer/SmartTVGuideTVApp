@@ -42,6 +42,12 @@ app.factory('StreamSocket', function (
 
 
 
+    ChatSocket.newVote = function (vote)
+    {
+        $log.log('ChatSocket: new_vote');
+
+        ChatSocketIO.emit('new_vote', vote);
+    };
 
 
     ChatSocket.requestCode = function ()

@@ -24,6 +24,8 @@ body
 	position: relative;
 	opacity: 1;
 	padding: 0 0 20px 0;
+	height: 100%;
+	overflow: auto;
 }
 #content h1
 {

@@ -3,6 +3,7 @@ angular.module('smartGuide').controller('StreamController', function (
       $log
     , $rootScope
     , $scope
+    , $timeout
     , DeviceManager
     , StreamSocket
 )
@@ -250,7 +251,9 @@ angular.module('smartGuide').controller('StreamController', function (
             votes:    0
         };
 
-        $scope.data.push(newVote);
+        $scope.addEntry(newVote);
+
+        StreamSocket.newVote(newVote);
     });
 
     $scope.$on('socket:vote', function (event, data) {
@@ -287,6 +290,13 @@ angular.module('smartGuide').controller('StreamController', function (
         $scope.setConnected();
     });
 
+    $scope.addEntry = function (data)
+    {
+        $scope.data.push(data);
+
+        $scope.scrollToBottom();
+    };
+
     $scope.eventsHide = function()
     {
         $scope.eventsVisible = false;
@@ -295,6 +305,15 @@ angular.module('smartGuide').controller('StreamController', function (
     $scope.eventsShow = function()
     {
         $scope.eventsVisible = true;
+    };
+
+    $scope.scrollToBottom = function()
+    {
+        $timeout(function()
+        {
+            var content = $('#content');
+            content.scrollTop(content.prop('scrollHeight'));
+        }, 1);
     };
 
     $scope.selectionClick = function()
