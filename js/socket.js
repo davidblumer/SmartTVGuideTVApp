@@ -35,6 +35,7 @@ app.factory('StreamSocket', function (
     ChatSocket.forward('beard_set_rotation');
     ChatSocket.forward('beard_set_zoom');
     ChatSocket.forward('beard_set_index');
+    ChatSocket.forward('beard_update');
     ChatSocket.forward('pair_disconnected');
     ChatSocket.forward('receive_switch_channel');
     ChatSocket.forward('create_vote');

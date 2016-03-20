@@ -38,7 +38,7 @@ angular.module('smartGuide').controller('BeardController', function (
     });
 
     $scope.$on('socket:beard_set_rotation', function (event, data) {
-        $log.log('BeardController: beard_set_rotation', event, data, 'rotate(' + data.r + 'deg)');
+        // $log.log('BeardController: beard_set_rotation', event, data, 'rotate('® + data.r + 'deg)');
 
         beard.css('transform', 'rotate(' + data.r + 'deg)');
     });
@@ -55,6 +55,20 @@ angular.module('smartGuide').controller('BeardController', function (
 
         $scope.beard.imageIndex = data.i;
     });
+
+
+    $scope.$on('socket:beard_update', function (event, data) {
+        // $log.log('BeardController: beard_update', event, data);
+
+        beard.css({
+            left:       data.x + 'px',
+            top:        data.y + 'px',
+            transform: 'rotate(' + data.r + 'deg)',
+            zoom:       data.z
+        });
+    });
+
+
 
 
     $scope.beardDisable = function()
