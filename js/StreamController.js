@@ -10,8 +10,26 @@ angular.module('smartGuide').controller('StreamController', function (
 {
     $scope.connected = false;
 
-    $scope.data = [];
+    $scope.data = [
+        {
+            date:  new Date(),
+            icon:  'long-arrow-right',
+            link:  '',
+            text:  '',
+            title: 'Thomas ist PRO7 beigetreten',
+            type:  'joined'
+        },
+        {
+            date:  new Date(),
+            icon:  'long-arrow-right',
+            link:  '',
+            text:  '',
+            title: 'Michael ist PRO7 beigetreten',
+            type:  'joined'
+        }
+    ];
 
+    /*
     $scope.data = [
         {
             date:  new Date(),
@@ -94,6 +112,7 @@ angular.module('smartGuide').controller('StreamController', function (
             type:  'github'
         },
     ];
+    */
 
     $scope.eventsVisible = true;
 
@@ -260,11 +279,18 @@ angular.module('smartGuide').controller('StreamController', function (
             icon:  'comments',
             link:  '',
             text:  data.message,
-            title: 'Michael Malura',
+            title: data.title,
             type:  'chat'
         };
 
         $scope.addEntry(newChatEntry);
+    });
+
+
+    $scope.$on('socket:new_content', function (event, data) {
+        $log.log('ChatsController: new_content', event, data);
+
+        $scope.addEntry(data);
     });
 
 
